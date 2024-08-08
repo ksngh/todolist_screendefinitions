@@ -3,6 +3,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.List;
+import java.util.Map;
 
 public class TodoListUtil {
 
@@ -37,7 +39,7 @@ public class TodoListUtil {
 		}
 	}
 
-	public String choiceQCX()throws IOException {
+	public String choiceQCX() throws IOException {
 		bw.write("종료 여부:\r\n");
 		bw.flush();
 		try {
@@ -45,6 +47,29 @@ public class TodoListUtil {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public void showResult(Map<String, List<String>> userMap){
+		for (String key : userMap.keySet()) {
+
+				try {
+					bw.write(key +"\r\n");
+					bw.flush();
+					bw.write("1. 주간 보고서 작성 (" +userMap.get(key).get(0)+
+						"), 2. 이메일 확인 및 응답 (" + userMap.get(key).get(1)+
+						"), 3. 회의 준비 (" + userMap.get(key).get(2)+
+						"), 4. 프로젝트 계획서 수정 (" + userMap.get(key).get(3)+
+						"), 5.팀 멤버와의 1:1 면담 (" + userMap.get(key).get(4)+
+						")");
+					bw.flush();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+
+		}
+
+
+
 	}
 
 }
