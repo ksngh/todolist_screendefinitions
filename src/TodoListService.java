@@ -5,7 +5,7 @@ public class TodoListService {
     private final TodoListUtil todoListUtil;
 
     Map<String, List<String>> userMap = new HashMap<>();
-    List<String> userList = new ArrayList<>(Arrays.asList("미정", "미정", "미정", "미정", "미정"));
+    List<String> userList;
     Scanner sc = new Scanner(System.in);
     String checkCondition = "";
     String name = "";
@@ -21,6 +21,8 @@ public class TodoListService {
     }
 
     public Map<String, List<String>> createUserTodoList(String userName) {
+
+       userList = new ArrayList<>(Arrays.asList("미정", "미정", "미정", "미정", "미정"));
         userMap.put(userName, userList);
         return userMap;
     }
