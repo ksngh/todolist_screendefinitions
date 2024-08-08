@@ -60,7 +60,7 @@ public class TodoListUtil {
 						"), 3. 회의 준비 (" + userMap.get(key).get(2)+
 						"), 4. 프로젝트 계획서 수정 (" + userMap.get(key).get(3)+
 						"), 5.팀 멤버와의 1:1 면담 (" + userMap.get(key).get(4)+
-						")");
+						") \r\n");
 					bw.flush();
 				} catch (IOException e) {
 					throw new RuntimeException(e);

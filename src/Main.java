@@ -9,10 +9,11 @@ public class Main {
 
 	public static void main(String[] args){
 
-		Map<String, List<String>> userMap = new HashMap<>();
-		ArrayList<String> userList = new ArrayList<>(Arrays.asList("미정", "미정", "미정", "미정", "미정"));
-		userMap.put("hyeok",userList);
-		TodoListUtil todoListUtil = new TodoListUtil();
-		todoListUtil.showResult(userMap);
-	}
+		TodoListService todoListService = new TodoListService(new TodoListUtil());
+        try {
+            todoListService.runTodo();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
